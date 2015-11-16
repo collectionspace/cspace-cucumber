@@ -194,6 +194,7 @@ Feature: Loan Out Page Testing
     Then the "Cancel Changes" button on the bottom should not be clickable
     And close the browser
 
+  #Incomplete
   Scenario: Warning on attempting to leave edited page on new loan out record
     Given user is on the "Create New" page
     And selects the "Loan Out" radio button on the Create New page
@@ -201,6 +202,7 @@ Feature: Loan Out Page Testing
     And user enters "loanout5678" in the "Loan Out Number" field
     #Finish
 
+  #Incomplete
   Scenario: Warning on attempting to leave edited page on edited loan out record
     Given user is on the "Find and Edit" page
     And selects "Loan Out" from the top nav search record type select field
