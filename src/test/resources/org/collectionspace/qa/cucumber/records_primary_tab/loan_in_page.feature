@@ -118,6 +118,7 @@ Feature: Loan In Page Testing
     Then the search results should not contain "deleteloantest123"
     And close the browser
 
+  #Incomplete
   Scenario: Deletion of Loan In Record with Relationships
     Given user is on the "Create New" page
     And selects the "Loan In" radio button on the Create New page
@@ -155,17 +156,71 @@ Feature: Loan In Page Testing
     And close the browser
 
   Scenario: Folding and Unfolding boxes
+    Given user is on the "Create New" page
+    And selects the "Loan In" radio button on the Create New page
+    And clicks on the Create button
+    And user clicks on the "Fold" symbol next to "Loans In Information"
+    Then the "Loans In Information" section should fold
+    And the "Fold" symbol next to "Loans In Information" should be a folded symbol
+    When user clicks on the "Fold" symbol next to "Loans In Information"
+    Then the "Loans In Information" section should unfold
+    And the "Fold" symbol next to "Loans In Information" should be a unfolded symbol
+    And close the browser
 
 #Warnings
 
+  #Incomplete
   Scenario: Cancel Changes buttons
+    Given user is on the "Find and Edit" page
+    And selects "Loan In" from the top nav search record type select field
+    And clicks on the top nav search submit button
+    And #selects one of the loan in records
+    And user clicks the "Cancel Changes" button on the top
+    Then the "Cancel Changes" button on the top should not be clickable
+    When user clicks the "Cancel Changes" button on the bottom
+    Then the "Cancel Changes" button on the bottom should not be clickable
+    When user enters "testnote" in the "Loan In Note" field
+    And user clicks the "Cancel Changes" button on the top
+    Then nothing should be in the "Loan In Note" field
+    When user enters "testnote" in the "Entry Note" field
+    And user clicks the "Cancel Changes" button on the bottom
+    Then nothing should be in the "Loan In Note" field
+    When user clicks on the Save button
+    And user clicks the "Cancel Changes" button on the top
+    Then the "Cancel Changes" button on the top should not be clickable
+    When user clicks the "Cancel Changes" button on the bottom
+    Then the "Cancel Changes" button on the bottom should not be clickable
+    And close the browser
 
-  Scenario: Warning on attempting to leave edited page
+  #Incomplete
+  Scenario: Warning on attempting to leave edited page on new loan in record
+    Given user is on the "Create New" page
+    And selects the "Loan In" radio button on the Create New page
+    And clicks on the Create button
+    And user enters "test5678" in the "Loan In Number" field
+    #Finish
+
+  #Incomplete
+  Scenario: Warning on attempting to leave edited page on edited loan in record
+    Given user is on the "Find and Edit" page
+    And selects "Loan In" from the top nav search record type select field
+    And clicks on the top nav search submit button
+    And #selects one of the loan in records
+    #Finish
 
   Scenario: Warning on attempting to add related object or procedures to unsaved Loan In
+    Given user is on the "Create New" page
+    And selects the "Loan In" radio button on the Create New page
+    And clicks on the Create button
+    And user clicks on "Add" on the sidebar next to "Cataloging"
+    Then the error message bar should appear with "Please save the record you are creating before trying to relate other records to it"
+    When user clicks on "Add" on the sidebar next to "Procedures"
+    Then the error message bar should appear with "Please save the record you are creating before trying to relate other records to it"
+    And close the browser
 
 #Keyboard Navigation
 
+  #Incomplete
   Scenario: All fields available via the keyboard
   	Given user is on the "Create New" page
     And selects the "Loan In" radio button on the Create New page
@@ -176,6 +231,7 @@ Feature: Loan In Page Testing
     Then #all fields should be accessable
     And close the browser
 
+  #Incomplete
   Scenario: Vocabulary Fields usable via keyboard only
   	Given user is on the "Create New" page
     And selects the "Loan In" radio button on the Create New page
