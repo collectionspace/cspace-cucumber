@@ -79,15 +79,80 @@ Feature: Loan In Page Testing
     Then #a success message from save should appear
     And the titlebar should contain "****"
     And all fields of the "****" record should be empty
-    When user clears the "Intake Entry Number" field
+    When user clears the "Loan In Number" field
     And user clicks on the Save button
-    Then the error message bar should appear with "Please specify an Intake Entry Number"
+    Then the error message bar should appear with "Please specify an Loan In Number"
     And the record should not be saved #NOT be saved
     And close the browser
 
+  #Incomplete
   Scenario: Deletion of Loan In Record
+  	Given user is on the "Create New" page
+    And selects the "Loan In" radio button on the Create New page
+    And clicks on the Create button
+    And user enters "deleteloantest123" in the "Loan In Number" field
+    And user clicks on the delete button
+    Then the delete button should not be clickable
+    When user clicks on the delete button
+    Then the delete button should not be clickable
+    When user clicks on the Save button
+    Then the record is successfully saved
+    When user clicks on the delete button
+    Then delete confirmation dialogue should appear
+    When user clicks cancel button
+    Then the delete confirmation dialogue should disappear
+    And #nothing else should happen
+    When user clicks on the delete button
+    Then delete confirmation dialogue should appear
+    When user clicks close button
+    Then the delete confirmation dialogue should disappear
+    And #nothing else should happen
+    When user clicks on the delete button
+    Then delete confirmation dialogue should appear
+    When user clicks the confirmation delete button
+    Then deletion should be confirmed in a dialogue
+    And #you should be redirected to Find and Edit page
+    When selects "Loan In" from the top nav search record type select field
+    And user enters "deleteloantest123" in the top nav search field
+    And clicks on the top nav search submit button
+    Then the search results should not contain "deleteloantest123"
+    And close the browser
 
   Scenario: Deletion of Loan In Record with Relationships
+    Given user is on the "Create New" page
+    And selects the "Loan In" radio button on the Create New page
+    And clicks on the Create button
+    And user enters "loandelete1" in the "Loan In Number" field
+    And user clicks on the Save button
+    And user selects the "Loan Out" tab
+    And user clicks the "Add record" button
+    And user clicks the "Create" button
+    And user enters "loanout123" in the "Loan Out Number" field
+    And user clicks on the Save button
+    And user selects the "Current Record" tab
+    And user clicks on the delete button
+    Then deletion should be confirmed in a dialogue
+    And the deletion dialogue should contain "and its relationships" #New step def
+    When user clicks cancel button
+    Then the delete confirmation dialogue should disappear
+    And #nothing else should happen
+    When user clicks on the delete button
+    Then delete confirmation dialogue should appear
+    And the deletion dialogue should contain "and its relationships"
+    When user clicks close button
+    Then the delete confirmation dialogue should disappear
+    And #nothing else should happen
+    When user clicks on the delete button
+    Then delete confirmation dialogue should appear
+    And the deletion dialogue should contain "and its relationships"
+    When user clicks the confirmation delete button
+    Then deletion should be confirmed in a dialogue
+    And #you should be redirected to Find and Edit page
+    When selects "Loan In" from the top nav search record type select field
+    And user enters "loandelete1" in the top nav search field
+    And clicks on the top nav search submit button
+    Then the search results should not contain "loandelete1"
+    And close the browser
 
   Scenario: Folding and Unfolding boxes
 
