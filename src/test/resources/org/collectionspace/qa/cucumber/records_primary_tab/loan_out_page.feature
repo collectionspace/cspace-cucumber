@@ -1,7 +1,7 @@
 #created by Alan Kwok at 11/15/2015
 #needs to be completed
 
-@loanout
+@recordsprimarytab
 Feature: Loan Out Page Testing
 
   #Check
