@@ -18,34 +18,75 @@ Feature: Loan Out Page Testing
     Then "LO2015.1.38" should be in the "Loan Out Number" field
     #I don't know how to test the increment by one, might be wrong.
     When user selects "Loan Out" from dropdown in "Type" row
-    Then "LO2015.1.39" should be in the "Loan In Number" field
+    Then "LO2015.1.39" should be in the "Loan Out Number" field
     And close the browser
 
-  Scenario:
+  #Check
+  Scenario: Borrower and Loans Out number displayed on new
+    Given user is on the "Create New" page
+    And selects the "Loan Out" radio button on the Create New page
+    And clicks on the Create button
+    And user enters "testloanout1234" in the "Loan Out Number" field
+    And user enters "John Doe" in the "Borrower" field
+    And user selects "John Doe" from dropdown in "John Doe" row
+    Then the titlebar should contain "testloanout1234 - John Doe"
+    #This part is harder to test
+    When user clicks "+" button next to the "Borrower" field
+    And user enters "Albert Smith" in the new "Borrower" field
+    And user selects "Albert Smith" from dropdown in "Albert Smith" row
+    And user selects the radio button next to "Albert Smith"
+    And user clicks on the Save button
+    Then the titlebar should contain "testloanout1234 - Albert Smith"
+    And close the browser
 
-  Scenario:
+  #Incomplete
+  Scenario: All fields saved on new Loans Out record
+    Given user is on the "Create New" page
+    And selects the "Loan Out" radio button on the Create New page
+    And clicks on the Create button
+    And #all fields should be filled in
+    And user clicks on the bottom Save button
+    Then #A "New Record successfully created" message should appear along with the current time
+    And #After the success message appear, All the fields should contain the same value as you entered/selected
+    And #After the success message appear, The name authorities should be displayed under Integrated Vocabularies
+    And #After the success message appear, The newlines should still be present in text areas
+    And close the browser
 
-  Scenario:
+  #Incomplete
+  Scenario: All fields saved on edited Loans Out record
+    Given user is on the "Find and Edit" page
+    And selects "Loan Out" from the top nav search record type select field
+    And clicks on the top nav search submit button
+    And #selects one of the loan out records
+    And #all fields should be filled in
+    And user clicks on the bottom Save button
+    Then #A "New Record successfully created" message should appear along with the current time
+    And #After the success message appear, All the fields should contain the same value as you entered/selected
+    And #After the success message appear, The name authorities should be displayed under Integrated Vocabularies
+    And #After the success message appear, The newlines should still be present in text areas
+    And close the browser
 
-  Scenario:
+  Scenario: Integrated Vocabulary display and pivoting
 
-  Scenario:
+  Scenario: Removing values from all fields
 
-  Scenario:
+  Scenario: Deletion of Loan Out Record
 
-  Scenario:
+  Scenario: Deletion of Loan Out Record with Relationships
 
-  Scenario:
+  Scenario: Folding and Unfolding boxes
 
-  Scenario:
+  #Warnings
 
-  Scenario:
+  Scenario: Cancel Changes buttons
 
-  Scenario:
+  Scenario: Warning on attempting to leave edited page on new loan out record
 
-  Scenario:
+  Scenario: Warning on attempting to leave edited page on edited loan out record
 
-  Scenario:
+  Scenario: Warning on attempting to add related object/procedures to unsaved Loans Out
 
-  Scenario:
+  Scenario: All fields available via the keyboard
+
+  Scenario: Vocabulary Fields usable via keyboard only
 
