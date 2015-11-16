@@ -55,7 +55,7 @@ Feature: Loan In Page Testing
     Given user is on the "Find and Edit" page
     And selects "Loan In" from the top nav search record type select field
     And clicks on the top nav search submit button
-    And #selects one of the intakes
+    And #selects one of the loan in records
     And #all fields should be filled in
     And user clicks on the bottom Save button
     Then #A "New Record successfully created" message should appear along with the current time
