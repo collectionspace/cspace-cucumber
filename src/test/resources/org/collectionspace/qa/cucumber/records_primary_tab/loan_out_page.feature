@@ -158,18 +158,87 @@ Feature: Loan Out Page Testing
     And close the browser
 
   Scenario: Folding and Unfolding boxes
+    Given user is on the "Create New" page
+    And selects the "Loan Out" radio button on the Create New page
+    And clicks on the Create button
+    And user clicks on the "Fold" symbol next to "Loans Out Information"
+    Then the "Loans Out Information" section should fold
+    And the "Fold" symbol next to "Loans Out Information" should be a folded symbol
+    When user clicks on the "Fold" symbol next to "Loans Out Information"
+    Then the "Loans Out Information" section should unfold
+    And the "Fold" symbol next to "Loans Out Information" should be a unfolded symbol
+    And close the browser
 
   #Warnings
 
+  #Incomplete
   Scenario: Cancel Changes buttons
+    Given user is on the "Find and Edit" page
+    And selects "Loan Out" from the top nav search record type select field
+    And clicks on the top nav search submit button
+    And #selects one of the loan out records
+    And user clicks the "Cancel Changes" button on the top
+    Then the "Cancel Changes" button on the top should not be clickable
+    When user clicks the "Cancel Changes" button on the bottom
+    Then the "Cancel Changes" button on the bottom should not be clickable
+    When user enters "testnote" in the "Loan Out Note" field
+    And user clicks the "Cancel Changes" button on the top
+    Then nothing should be in the "Loan Out Note" field
+    When user enters "testnote" in the "Entry Note" field
+    And user clicks the "Cancel Changes" button on the bottom
+    Then nothing should be in the "Loan Out Note" field
+    When user clicks on the Save button
+    And user clicks the "Cancel Changes" button on the top
+    Then the "Cancel Changes" button on the top should not be clickable
+    When user clicks the "Cancel Changes" button on the bottom
+    Then the "Cancel Changes" button on the bottom should not be clickable
+    And close the browser
 
   Scenario: Warning on attempting to leave edited page on new loan out record
+    Given user is on the "Create New" page
+    And selects the "Loan Out" radio button on the Create New page
+    And clicks on the Create button
+    And user enters "loanout5678" in the "Loan Out Number" field
+    #Finish
 
   Scenario: Warning on attempting to leave edited page on edited loan out record
+    Given user is on the "Find and Edit" page
+    And selects "Loan Out" from the top nav search record type select field
+    And clicks on the top nav search submit button
+    And #selects one of the loan out records
+    #Finish
 
   Scenario: Warning on attempting to add related object/procedures to unsaved Loans Out
+    Given user is on the "Create New" page
+    And selects the "Loan Out" radio button on the Create New page
+    And clicks on the Create button
+    And user clicks on "Add" on the sidebar next to "Cataloging"
+    Then the error message bar should appear with "Please save the record you are creating before trying to relate other records to it"
+    When user clicks on "Add" on the sidebar next to "Procedures"
+    Then the error message bar should appear with "Please save the record you are creating before trying to relate other records to it"
+    And close the browser
 
+#Keyboard Navigation
+
+  #Incomplete
   Scenario: All fields available via the keyboard
+    Given user is on the "Create New" page
+    And selects the "Loan Out" radio button on the Create New page
+    And clicks on the Create button
+    And user presses "Tab"
+    Then #the first field should be accessable
+    When #user repeats pressing "Tab" on all repeatable fields
+    Then #all fields should be accessable
+    #Finish and add the other buttons that are special cases
+    And close the browser
 
+  #Incomplete
   Scenario: Vocabulary Fields usable via keyboard only
+    Given user is on the "Create New" page
+    And selects the "Loan Out" radio button on the Create New page
+    And clicks on the Create button
+    And user presses "Tab" #until reaching the "Borrower" field
+    And user enters "James" in the "Borrower" field #possibly incorrect
+    Then #FINISH
+    And close the browser
 
