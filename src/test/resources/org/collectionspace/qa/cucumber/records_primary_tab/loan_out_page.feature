@@ -66,13 +66,96 @@ Feature: Loan Out Page Testing
     And #After the success message appear, The newlines should still be present in text areas
     And close the browser
 
+  #To Do
   Scenario: Integrated Vocabulary display and pivoting
 
+  #Incomplete
   Scenario: Removing values from all fields
+    Given user is on the "Find and Edit" page
+    And selects "Loan Out" from the top nav search record type select field
+    And clicks on the top nav search submit button
+    And selects Loan Out **** #fix
+    And user clears all fields of the "****" record
+    And user enters "****" in the "Loan Out Number" field
+    And user clicks on the Save button
+    Then #a success message from save should appear
+    And the titlebar should contain "****"
+    And all fields of the "****" record should be empty
+    When user clears the "Loan Out Number" field
+    And user clicks on the Save button
+    Then the error message bar should appear with "Please specify an Loan Out Number"
+    And the record should not be saved #NOT be saved
+    And close the browser
 
+  #Incomplete
   Scenario: Deletion of Loan Out Record
-
+    Given user is on the "Create New" page
+    And selects the "Loan Out" radio button on the Create New page
+    And clicks on the Create button
+    And user enters "deleteloanouttest123" in the "Loan Out Number" field
+    And user clicks on the delete button
+    Then the delete button should not be clickable
+    When user clicks on the delete button
+    Then the delete button should not be clickable
+    When user clicks on the Save button
+    Then the record is successfully saved
+    When user clicks on the delete button
+    Then delete confirmation dialogue should appear
+    When user clicks cancel button
+    Then the delete confirmation dialogue should disappear
+    And #nothing else should happen
+    When user clicks on the delete button
+    Then delete confirmation dialogue should appear
+    When user clicks close button
+    Then the delete confirmation dialogue should disappear
+    And #nothing else should happen
+    When user clicks on the delete button
+    Then delete confirmation dialogue should appear
+    When user clicks the confirmation delete button
+    Then deletion should be confirmed in a dialogue
+    And #you should be redirected to Find and Edit page
+    When selects "Loan Out" from the top nav search record type select field
+    And user enters "deleteloanouttest123" in the top nav search field
+    And clicks on the top nav search submit button
+    Then the search results should not contain "deleteloanouttest123"
+    And close the browser
+  
+  #Incomplete
   Scenario: Deletion of Loan Out Record with Relationships
+    Given user is on the "Create New" page
+    And selects the "Loan Out" radio button on the Create New page
+    And clicks on the Create button
+    And user enters "loandelete2" in the "Loan Out Number" field
+    And user clicks on the Save button
+    And user selects the "Loan Out" tab
+    And user clicks the "Add record" button
+    And user clicks the "Create" button
+    And user enters "loanout456" in the "Loan Out Number" field
+    And user clicks on the Save button
+    And user selects the "Current Record" tab
+    And user clicks on the delete button
+    Then deletion should be confirmed in a dialogue
+    And the deletion dialogue should contain "and its relationships" #New step def
+    When user clicks cancel button
+    Then the delete confirmation dialogue should disappear
+    And #nothing else should happen
+    When user clicks on the delete button
+    Then delete confirmation dialogue should appear
+    And the deletion dialogue should contain "and its relationships"
+    When user clicks close button
+    Then the delete confirmation dialogue should disappear
+    And #nothing else should happen
+    When user clicks on the delete button
+    Then delete confirmation dialogue should appear
+    And the deletion dialogue should contain "and its relationships"
+    When user clicks the confirmation delete button
+    Then deletion should be confirmed in a dialogue
+    And #you should be redirected to Find and Edit page
+    When selects "Loan Out" from the top nav search record type select field
+    And user enters "loandelete2" in the top nav search field
+    And clicks on the top nav search submit button
+    Then the search results should not contain "loandelete2"
+    And close the browser
 
   Scenario: Folding and Unfolding boxes
 
