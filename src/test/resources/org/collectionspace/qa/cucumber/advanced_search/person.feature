@@ -1,6 +1,6 @@
 #Created by Forest Yang on 1/11/2016
 
-@advancedsearch
+#@advancedsearch
 Feature: Advanced Search - Person
 
   #Test1
@@ -197,7 +197,7 @@ Feature: Advanced Search - Person
       And selects "Female" from dropdown in "Gender" row
       And clicks the "Search" button
     Then the search results should contain "Lorelai"
-    Then the search results should ccontain "Andrea"
+    Then the search results should contain "Andrea"
     Then the search results should not contain "DD"
     Then close the browser
 

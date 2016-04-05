@@ -1,6 +1,6 @@
 #Created by Forest Yang on 12/29/2015
 
-@advancedsearch
+#@advancedsearch
 Feature: Advanced Search - Location / Movement / Inventory
 
   #Test1
@@ -299,7 +299,7 @@ Feature: Advanced Search - Location / Movement / Inventory
       And enters "testtest" in the "keyword search" field
       And selects "Location/Movement/Inventory" from record type dropdown
       And selects "any (OR)" from the "Field-based Search" drop down
-      And eneters "Jane Doe" in the "Advanced Search" "Movement Contact" vocab field
+      And enters "Jane Doe" in the "Advanced Search" "Movement Contact" vocab field
       And clicks on "Jane Doe" from autocomplete options
       And enters "In a Shoebox" in the "Advanced Search" "Current Location" vocab field
       And clicks on "In a Shoebox" from autocomplete options
