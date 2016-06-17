@@ -57,6 +57,42 @@ public class Person extends Record{
         fieldSelectorByLabel.put("Forename", "csc-personAuthority-foreName");
         // Selector for the Person Vocab field in the cataloging record
         fieldSelectorByLabel.put("Cataloging->Content->Person", "csc-object-description-content-person");
+
+        dropDownMap.put("Status", "csc-personAuthority-termStatus");
+        dropDownMap.put("Gender", "csc-personAuthority-gender");
+
+
+        fieldSelectorByLabel.put("Display Name",        "csc-personAuthority-termDisplayName");
+        fieldSelectorByLabel.put("Birth Date",          "csc-personAuthority-birthDate");
+        fieldSelectorByLabel.put("Death Date",          "csc-personAuthority-deathDate");
+
+        xpathMap.put("Latest Birth Date Year",                    "//*[@id=\"primaryTab\"]/div/div[3]/div/div[2]/div[2]/div[2]/div[2]/div/div/div[2]/div/div/div[2]/div/div/table/tbody/tr[2]/td[2]/input");
+        xpathMap.put("Latest Birth Date Month",                   "//*[@id=\"primaryTab\"]/div/div[3]/div/div[2]/div[2]/div[2]/div[2]/div/div/div[2]/div/div/div[2]/div/div/table/tbody/tr[2]/td[3]/input");
+        xpathMap.put("Latest Birth Date Day",                     "//*[@id=\"primaryTab\"]/div/div[3]/div/div[2]/div[2]/div[2]/div[2]/div/div/div[2]/div/div/div[2]/div/div/table/tbody/tr[2]/td[4]/input");
+        xpathMap.put("Earliest/Single Birth Date Year",           "//*[@id=\"primaryTab\"]/div/div[3]/div/div[2]/div[2]/div[2]/div[2]/div/div/div[2]/div/div/div[2]/div/div/table/tbody/tr/td[2]/input");
+        xpathMap.put("Earliest/Single Birth Date Month",          "//*[@id=\"primaryTab\"]/div/div[3]/div/div[2]/div[2]/div[2]/div[2]/div/div/div[2]/div/div/div[2]/div/div/table/tbody/tr/td[3]/input");
+        xpathMap.put("Earliest/Single Birth Date Day",            "//*[@id=\"primaryTab\"]/div/div[3]/div/div[2]/div[2]/div[2]/div[2]/div/div/div[2]/div/div/div[2]/div/div/table/tbody/tr/td[4]/input");
+        xpathMap.put("Latest Death Date Year",                       "//*[@id=\"primaryTab\"]/div/div[3]/div/div[2]/div[2]/div[2]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div/table/tbody/tr[2]/td[2]/input");
+        xpathMap.put("Latest Death Date Year",                       "//*[@id=\"primaryTab\"]/div/div[3]/div/div[2]/div[2]/div[2]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div/table/tbody/tr[2]/td[3]/input");
+        xpathMap.put("Latest Death Date Year",                       "//*[@id=\"primaryTab\"]/div/div[3]/div/div[2]/div[2]/div[2]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div/table/tbody/tr[2]/td[4]/input");
+        xpathMap.put("Earliest/Single Death Date Year",              "//*[@id=\"primaryTab\"]/div/div[3]/div/div[2]/div[2]/div[2]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div/table/tbody/tr/td[2]/input");
+        xpathMap.put("Earliest/Single Death Date Month",             "//*[@id=\"primaryTab\"]/div/div[3]/div/div[2]/div[2]/div[2]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div/table/tbody/tr/td[3]/input");
+        xpathMap.put("Earliest/Single Death Date Day",               "//*[@id=\"primaryTab\"]/div/div[3]/div/div[2]/div[2]/div[2]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div/table/tbody/tr/td[4]/input");
+
+        fieldSelectorByLabel.put("Biographical Note",   "csc-personAuthority-bioNote");
+        fieldSelectorByLabel.put("Group",               "csc-personAuthority-group");
+        fieldSelectorByLabel.put("Nationality",         "csc-personAuthority-nationality");
+        fieldSelectorByLabel.put("Occupation",          "csc-personAuthority-occupation");
+        fieldSelectorByLabel.put("School/Style",        "csc-personAuthority-schoolOrStyle");
+        fieldSelectorByLabel.put("Name Notes", "csc-personAuthority-nameNote");
+        fieldSelectorByLabel.put("Earliest Birth Date",    "csc-person-birthDateGroupStart");
+        fieldSelectorByLabel.put("Latest Birth Date",      "csc-person-birthDateGroupEnd");
+        fieldSelectorByLabel.put("Earliest Death Date",    "csc-person-deathDateGroupStart");
+        fieldSelectorByLabel.put("Latest Death Date",      "csc-person-deathDateGroupEnd");
+        fieldSelectorByLabel.put("Earliest Modified Date", "csc-person-updatedAtStart");
+        fieldSelectorByLabel.put("Latest Modified Date",   "csc-person-updatedAtEnd");
+        fieldSelectorByLabel.put("Record last modified by","csc-person-updatedBy");
+
     }
 
 
