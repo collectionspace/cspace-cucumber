@@ -5,32 +5,57 @@ public class LocationMovementInventory extends Record {
     public LocationMovementInventory() {
 
 
-      xpathMap.put("Current Location",         "//*[@id=\"primaryTab\"]/div/div[3]/div[1]/div[2]/div[2]/div/div[2]/table/tbody/tr/td[1]/input[2]");
-      xpathMap.put("Contact",                  "//*[@id=\"primaryTab\"]/div/div[3]/div[2]/div[2]/div[1]/div[2]/div/div[2]/input[2]");
-      xpathMap.put("Normal Location",          "//*[@id=\"primaryTab\"]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div[2]/input[2]");
-      xpathMap.put("Second Contact",           "//*[@id=\"fluid-id-5jxc7z9x-1204\"]/ul/li/input[3]"); // fix fluid id....
 
-      // fieldSelectorByLabel.put("Contact", "csc-movement-movementContact"); // "Contact" in UI. Disambiguating name could be "Movement Contact"
-      // fieldSelectorByLabel.put("Current Location", "csc-movement-currentLocation");
-      fieldSelectorByLabel.put("First Note", "csc-movement-currentLocationNote"); // "Note" in UI. Disambiguating name could be "Current Location Note"
-      fieldSelectorByLabel.put("Fitness", "csc-movement-currentLocationFitness");
-      fieldSelectorByLabel.put("Inventory Action Required", "csc-movement-inventoryActionRequired");
-      //fieldSelectorByLabel.put("Second Contact", "csc-movement-inventoryContact"); // "Contact" in UI. Disambiguating name could be "Inventory Contact"
-      fieldSelectorByLabel.put("Inventory Date", "csc-movement-inventoryDate");
-      fieldSelectorByLabel.put("Inventory Frequency", "csc-movement-frequencyForInventory");
-      fieldSelectorByLabel.put("Inventory Information", "csc-movement-inventory");
-      fieldSelectorByLabel.put("Location Date", "csc-movement-locationDate");
-      fieldSelectorByLabel.put("Method", "csc-movement-movementMethod");
-      fieldSelectorByLabel.put("Movement Information", "csc-movement-movementControlInformation");
-      fieldSelectorByLabel.put("Next Inventory Date", "csc-movement-nextInventoryDate");
-      // fieldSelectorByLabel.put("Normal Location", "csc-movement-normalLocation");
-      fieldSelectorByLabel.put("Object Location Information", "csc-movement-locationMovementInformation");
-      fieldSelectorByLabel.put("Planned removal date", "csc-movement-plannedRemovalDate");
-      fieldSelectorByLabel.put("Reason for move", "csc-movement-reasonForMove");
-      fieldSelectorByLabel.put("Reference Number", "csc-movement-movementReferenceNumber");
-      fieldSelectorByLabel.put("Removal date", "csc-movement-removalDate");
-      fieldSelectorByLabel.put("Second Note", "csc-movement-movementNote"); // "Note" in UI. Disambiguating name could be "Movement Note"
-      fieldSelectorByLabel.put("Third Note", "csc-movement-inventoryNote"); // "Note" in UI. Disambiguating name could be "Inventory Note"
+
+      dropDownMap.put("Inventory Action Required",     "csc-movement-inventoryActionRequired");
+      dropDownMap.put("Inventory Frequency",           "csc-movement-frequencyForInventory");
+      dropDownMap.put("Movement Method",               "csc-movement-movementMethods");
+      dropDownMap.put("Reason for move",               "csc-movement-reasonForMove");
+
+      fieldSelectorByLabel.put("Earliest Inventory Date",        "csc-movement-inventoryDateStart");
+      fieldSelectorByLabel.put("Earliest Location Date",         "csc-movement-locationDateStart");
+      fieldSelectorByLabel.put("Earliest Modified Date",         "csc-movement-updatedAtEnd");
+      fieldSelectorByLabel.put("Earliest Modified Date",         "csc-movement-updatedAtStart");
+      fieldSelectorByLabel.put("Earliest Next Inventory Date",   "csc-movement-nextInventoryDateStart");
+      fieldSelectorByLabel.put("Earliest Planned removal date",  "csc-movement-plannedRemovalDateStart");
+      fieldSelectorByLabel.put("Earliest Removal date",          "csc-movement-removalDateStart");
+      fieldSelectorByLabel.put("Fitness",                        "csc-movement-currentLocationFitness");
+      fieldSelectorByLabel.put("Inventory Date",                 "csc-movement-inventoryDate");
+      fieldSelectorByLabel.put("Inventory Information",          "csc-movement-inventory");
+      fieldSelectorByLabel.put("Inventory Note",                 "csc-movement-inventoryNote");
+      fieldSelectorByLabel.put("Latest Inventory Date",          "csc-movement-inventoryDateEnd");
+      fieldSelectorByLabel.put("Latest Location Date",           "csc-movement-locationDateEnd");
+      fieldSelectorByLabel.put("Latest Next Inventory Date",     "csc-movement-nextInventoryDateEnd");
+      fieldSelectorByLabel.put("Latest Planned removal date",    "csc-movement-plannedRemovalDateEnd");
+      fieldSelectorByLabel.put("Latest Removal date",            "csc-movement-removalDateEnd");
+      fieldSelectorByLabel.put("Location Date",                  "csc-movement-locationDate");
+      fieldSelectorByLabel.put("Movement Information",           "csc-movement-movementControlInformation");
+      fieldSelectorByLabel.put("Movement Note",                  "csc-movement-movementNote");
+      fieldSelectorByLabel.put("Next Inventory Date",            "csc-movement-nextInventoryDate");
+      fieldSelectorByLabel.put("Object Location Information",    "csc-movement-locationMovementInformation");
+      fieldSelectorByLabel.put("Object Location Note",           "csc-movement-currentLocationNote");
+      fieldSelectorByLabel.put("Planned removal date",           "csc-movement-plannedRemovalDate");
+      fieldSelectorByLabel.put("Record last modified by",        "csc-movement-updatedBy");
+      fieldSelectorByLabel.put("Reference Number",               "csc-movement-movementReferenceNumber");
+      fieldSelectorByLabel.put("Removal date",                   "csc-movement-removalDate");
+
+      xpathMap.put("Current Location Search",  "//*[@id=\"all-content\"]/div/div[1]/div/div/div/div[2]/div[4]/div/div/div/div/div/div[2]/div/ul/li/input[3]");
+      xpathMap.put("Inventory Contact Search", "//*[@id=\"all-content\"]/div/div[1]/div/div/div/div[2]/div[4]/div/div/div/div/div[11]/div[2]/div/ul/li/input[3]");
+      xpathMap.put("Inventory Contact",        "//*[@id=\"primaryTab\"]/div/div[3]/div[3]/div[2]/div[2]/div[1]/div/div[2]/div/ul/li/input[3]");
+      xpathMap.put("Movement Contact Search", "//*[@id=\"all-content\"]/div/div[1]/div/div/div/div[2]/div[4]/div/div/div/div/div[4]/div[2]/div/ul/li/input[3]");
+      xpathMap.put("Movement Contact",         "//*[@id=\"secondary-nav-menu\"]/div[2]/div/div[3]/div[2]/div[2]/div/div[2]/div/div[2]/input[2]");
+      xpathMap.put("Normal Location Search",   "//*[@id=\"all-content\"]/div/div[1]/div/div/div/div[2]/div[2]/div/div[3]/div[2]/div[2]/div/div[2]/div/div[2]/input[2]");
+      xpathMap.put("Normal Location",          "//*[@id=\"primaryTab\"]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div[2]/input[2]");
+      xpathMap.put("Current Location",         "//*[@id=\"primaryTab\"]/div/div[3]/div[1]/div[2]/div[2]/div/div[2]/table/tbody/tr/td[1]/input[2]");
+
+
+      // And enters "Jane Doe" in the "Location/Movement/Inventory" "Movement Contact" autocomplete field
+      // And enters "In a Shoebox" in the "Location/Movement/Inventory" "Current Location" autocomplete field
+
+      // And enters "Jane Doe" in the "Location/Movement/Inventory" "Movement Contact" autocomplete field
+      // And enters "In a Shoebox" in the "Location/Movement/Inventory" "Current Location" autocomplete field
+
+
 
 
     }
