@@ -3,6 +3,22 @@ package org.collectionspace.qa.records;
 public class Place extends Record {
 
     public Place(){
+        fieldSelectorByLabel.put("Record last modified by", "csc-place-updatedBy");
+        fieldSelectorByLabel.put("Earliest Modified Date",  "csc-place-updatedAtStart");
+        fieldSelectorByLabel.put("Latest Modified Date",    "csc-place-updatedAtEnd");
+
+        dropDownMap.put("Status", "csc-placeAuthority-termStatus");
+        dropDownMap.put("Language", "csc-placeAuthority-termLanguage");
+        dropDownMap.put("Place type", "csc-place-placeType");
+
+        // And enters "Conyay" in the "Place" "Display Name" field
+        // And enters "RealFrend" in the "Place" "Name" field
+        // And enters "I love you honeybear" in the "Place" "Place note" field
+        // And enters "Travvy" in the "Place" "Owner" vocab field
+        // And adds "Travvy" to "Local Persons"
+
+        xpathMap.put("Owner", "//*[@class=\"owner\"]/input[2]"); // When the tests run this element is NOT found for some reason
+        xpathMap.put("Owner Search", "//*[@id=\".csc-place-placeOwnerGroup\"]/input[2]"); // When the tests run this element is NOT found for some reason
 
         requiredMap.put("csc-placeAuthority-termDisplayName", "No place like Home");
 
@@ -42,7 +58,6 @@ public class Place extends Record {
         fieldSelectorByLabel.put("Note", "csc-place-ownershipNote");
         fieldSelectorByLabel.put("Note", "csc-placeAuthority-nameNote");
         fieldSelectorByLabel.put("Object component type", "csc-hierarchy-narrowerContextType");
-        fieldSelectorByLabel.put("Owner", "csc-place-owner");
         fieldSelectorByLabel.put("Place Authority", "csc-place-placeAuthorityInformation");
         fieldSelectorByLabel.put("Place Record Type", "csc-place-placeType");
         fieldSelectorByLabel.put("Place Term Group(s)", "csc-place-placeAuthority");
