@@ -491,6 +491,9 @@ public class Utilities {
             case "Citation":
                 record = new Citation();
                 break;
+            case "Concept":
+                record = new Concept();
+                break;
             case "Condition Check":
                 record = new ConditionCheck();
                 break;
