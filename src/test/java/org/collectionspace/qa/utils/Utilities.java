@@ -488,6 +488,9 @@ public class Utilities {
             case "AdvancedSearchVocabulary":
                 record = new AdvancedSearchVocabulary();
                 break;
+            case "Citation":
+                record = new Citation();
+                break;
             case "Condition Check":
                 record = new ConditionCheck();
                 break;
@@ -556,6 +559,9 @@ public class Utilities {
                 break;
             case "SupplementaryPrimary":
                 record = new SupplementaryPrimary();
+                break;
+            case "Storage Location":
+                record = new StorageLocation();
                 break;
             case "Valuation Control":
                 record = new ValuationControl();
