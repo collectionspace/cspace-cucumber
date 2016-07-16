@@ -10,6 +10,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import org.collectionspace.qa.utils.Config;
 import org.collectionspace.qa.utils.Pages;
 import org.collectionspace.qa.utils.ElementMappings;
 import org.openqa.selenium.By;
@@ -43,13 +44,12 @@ public class StepDefs {
     private Selenium selenium;
     private ElementMappings mappings = new ElementMappings();
     private SimpleDateFormat isoDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-
-    public static String
-            BASE_URL = "http://qa.collectionspace.org:8180/collectionspace/ui/core/html/";
-
+    
+    public static Config config = new Config();
+    public static String BASE_URL = config.getBaseURL();
 
     public StepDefs() {
-        driver = new FirefoxDriver();
+        driver = config.getBrowserDriver();
         wait = new WebDriverWait(driver, 10);
         driver.manage().window().maximize();
 
@@ -443,6 +443,14 @@ public class StepDefs {
     @And("^(?:the user |user )?clears all fields of the \"([^\"]*)\" record$")
     public void clears_all_fields_of_the_record(String recordType) throws Throwable {
         clearAllFieldsFor(recordType, driver);
+    }
+
+    @And("^(?:the user |user )?clears the \"([^\"]*)\" \"([^\"]*)\" field$")
+    public void clears_the_field(String recordType , String fieldName) throws Throwable {
+        String selector;
+        WebElement element = findElementWithLabel(driver, recordType, fieldName);
+        element.clear();
+        new WebDriverWait(driver, 10);
     }
 
     @And("^all fields of the \"([^\"]*)\" record should be empty$")

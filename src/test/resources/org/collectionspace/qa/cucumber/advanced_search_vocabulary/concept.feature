@@ -1,8 +1,8 @@
 # Created by Cesar Villalobos on 06/28/2016
+@advancedsearchvocab @concept
 
-@advancedsearchvocab
+
 Feature: Searching a new concept record
-    # Enter feature description here
 
     Scenario: Record creation and search by Display Name
         Given user is on a blank "Associated Concepts" record

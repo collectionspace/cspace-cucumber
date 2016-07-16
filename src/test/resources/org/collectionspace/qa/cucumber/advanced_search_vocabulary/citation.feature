@@ -1,7 +1,7 @@
 # Created by Regina Xu on 2/26/16
 # CQA-21
 # NOTE: Commented-Out Parts not working for some reason. The WebElement can't be found.
-@advancesearch
+@advancesearchvocab
 Feature: Advanced Search - Citation
 
     Scenario: Advanced Search Fields
