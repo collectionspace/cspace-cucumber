@@ -490,6 +490,12 @@ public class Utilities {
             case "AdvancedSearchVocabulary":
                 record = new AdvancedSearchVocabulary();
                 break;
+            case "Citation":
+                record = new Citation();
+                break;
+            case "Concept":
+                record = new Concept();
+                break;
             case "Condition Check":
                 record = new ConditionCheck();
                 break;
@@ -559,11 +565,17 @@ public class Utilities {
             case "SupplementaryPrimary":
                 record = new SupplementaryPrimary();
                 break;
+            case "Storage Location":
+                record = new StorageLocation();
+                break;
             case "Valuation Control":
                 record = new ValuationControl();
                 break;
             case "VocabularyTerms":
                 record = new VocabularyTerms();
+                break;
+            case "Work":
+                record = new Work();
                 break;
             default:
                 throw new Exception(recordType + ": No classes of that Type known");

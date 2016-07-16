@@ -38,7 +38,9 @@ public class Acquisition extends Record {
 
 
 		xpathMap.put("Acquisition Authorizer",		  "//*[@id=\"primaryTab\"]/div/div[3]/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/table/tbody/tr/td[1]/input[2]");
-		xpathMap.put("Acquisition Source",            "//*[@name=\"primary-fields.acquisitionSources\"]/following-sibling::input[1]");
+		xpathMap.put("Acquisition Source",            "//*[@id=\"primaryTab\"]/div/div[3]/div/div[2]/div/div/div[6]/div[2]/div/ul/li/input[3]");
+        xpathMap.put("Search Acquisition Source",     "//*[@id=\"all-content\"]/div/div/div/div/div/div[2]/div[4]/div/div/div/div/div[6]/div[2]/div/ul/li/input[3]");
+
 		xpathMap.put("Funding Source",				  "//*[@id=\"repeat::\"]/td[4]/input[2]");
 		xpathMap.put("Search Acquisition source",     "//*[@name=\"primary-acquisitionSources\"]/following-sibling::input[1]");
 		xpathMap.put("Search Funding source",         "//*[@id=\".csc-acquisition-acquisitionFunding\"]/input[2]");

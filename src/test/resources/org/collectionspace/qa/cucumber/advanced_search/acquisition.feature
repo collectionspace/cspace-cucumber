@@ -25,8 +25,7 @@ Feature: Advanced Search Acquisition
 
        And selects "Purchase" from the "Acquisition" "Acquisition Method" dropdown
        And enters "CQA-71 Test" in the "Acquisition" "Field collection event name" field
-       # # And enters "CQA-71 Acquisition Source" in the "Acquisition" "Acquisition Source" field
-       # # And clicks on "CQA-71 Acquisition Source" from autocomplete options
+       And enters "CQA-71 Acquisition Source" in the "Acquisition" "Acquisition Source" field
        And enters "CQA-71 Funding source" in the "Acquisition" "Funding Source" autocomplete field
        And enters "textbook" in the "Acquisition" "Credit Line" field
 
@@ -62,13 +61,12 @@ Feature: Advanced Search Acquisition
        And clicks the "Advanced Search search" button
        Then the search results should contain "CQA71.1"
 #
-       #Acquisition Source
-#         And clicks the "Advanced Search" button
-#         And selects "Acquisition" from the "AdvancedSearch" "record type" dropdown
-#         And enters "CQA-71 Acquisition Source" in the "Acquisition" "Acquisition Source" field
-#         And clicks on "CQA-71 Acquisition Source" from autocomplete options
-#         And clicks the "Advanced Search search" button
-#         Then the search results should contain "CQA71.1"
+    #    Acquisition Source
+        And clicks the "Advanced Search" button
+        And selects "Acquisition" from the "AdvancedSearch" "record type" dropdown
+        And enters "CQA-71 Acquisition Source" in the "Acquisition" "Search Acquisition Source" field
+        And clicks the "Advanced Search search" button
+        Then the search results should contain "CQA71.1"
 #
        #Acquisition Funding
        And clicks the "Advanced Search" button

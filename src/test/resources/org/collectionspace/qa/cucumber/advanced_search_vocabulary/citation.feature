@@ -1,43 +1,82 @@
 # Created by Regina Xu on 2/26/16
+# CQA-21
+# NOTE: Commented-Out Parts not working for some reason. The WebElement can't be found.
+@advancesearchvocab
+Feature: Advanced Search - Citation
 
-@advancedsearchvocab @citation
-Feature: Advanced Search - Citation 
+    Scenario: Advanced Search Fields
+        Given user is on a blank "Local Citations" record
+        And enters "CQA21" in the "Citation" "Display Name" field
+        And enters "CQA21 Citation" in the "Citation" "Full Citation" field
+        And selects "French" from the "Citation" "Language" dropdown
+        And selects "Accepted" from the "Citation" "Status" dropdown
+        And selects "Biography" from the "Citation" "Term Type" dropdown
+        And enters "CQA21 Title" in the "Citation" "Title" field
+        And clicks the "Save" button
 
-## The remainder of this feature file, below, needs to be converted from narrative to steps
-#
-# Scenario 1: Advanced Search Fields
-#
-#     Actions:
-#         Create a new Citation record
-#         Fill in the following fields:
-#         Display Name (remember what you entered)
-#         Full Citation
-#         Language
-#         Status
-#         Term Type
-#         Title
-#         Save the record
-#         Print out the record to remember what you entered in each field
-#         Navigate to advanced search via the link next to the search field in the upper right hand corner
-#         Select Citation in the record type drop down
-#         Enter what you previously entered into the Display Name field in the record, into the Display Name field in Advanced Search
-#         Click search
-#
-#     Expected:
-#         The Citation record you just created should appear in the search results
-#
-#     Actions:
-#         Do this for each of the fields listed above, field by field, by erasing / un-selecting the value you entered into the previous field, and entering the value in the next field.
-#     Expected:
-#         The Citation record you just created should appear in the search results
-#
-#     Actions:
-#         Search the Record Last Modified By field for your username (e.g. admin@core.collectionspace.org)
-#     Expected:
-#         The Citation record you just created should appear in the search results
-#
-#     Actions:
-#         Search the Modified Date field for today's date
-#     Expected:
-#         The Citation record you just created should appear in the search results
-#         (Note, 2/2016: Be aware of the way that Collectionspace handles the time difference between your location and UTC. I last modified a record on 2016-02-04T20:17:36:927 PST, but CSpace recorded the modification at 2016-02-05T00:17:36:927Z, i.e., just after midnight the next day. An advanced search on modified date - latest date February 4, 2016 does not detect the record. This is expected CSpace behavior, though confusing to users, perhaps. - Rick)
+        And clicks the "Advanced Search" button
+        And selects "Citation" from the "AdvancedSearch" "record type" dropdown
+        And enters "CQA21" in the "Citation" "Display Name" field
+        And clicks the "Advanced Search search" button
+        Then the search results should contain "CQA21"
+        Then close the browser
+
+    Scenario: Search by fields
+        Given user is on the "My CollectionSpace" page
+        And clicks the "Advanced Search" button
+        And selects "Citation" from the "AdvancedSearch" "record type" dropdown
+        And enters "CQA21 Citation" in the "Citation" "Full Citation" field
+        And clicks the "Advanced Search search" button
+        Then the search results should contain "CQA21"
+
+        And clicks the "Advanced Search" button
+        And selects "Citation" from the "AdvancedSearch" "record type" dropdown
+        And selects "French" from the "Citation" "Language" dropdown
+        And clicks the "Advanced Search search" button
+        Then the search results should contain "CQA21"
+
+        And clicks the "Advanced Search" button
+        And selects "Citation" from the "AdvancedSearch" "record type" dropdown
+        And selects "Accepted" from the "Citation" "Status" dropdown
+        And clicks the "Advanced Search search" button
+        Then the search results should contain "CQA21"
+
+        And clicks the "Advanced Search" button
+        And selects "Citation" from the "AdvancedSearch" "record type" dropdown
+        And selects "Biography" from the "Citation" "Term Type" dropdown
+        And clicks the "Advanced Search search" button
+        Then the search results should contain "CQA21"
+
+        And clicks the "Advanced Search" button
+        And selects "Citation" from the "AdvancedSearch" "record type" dropdown
+        And enters "CQA21 Title" in the "Citation" "Title" field
+        And clicks the "Advanced Search search" button
+        Then the search results should contain "CQA21"
+        Then close the browser
+
+
+    # Scenario: Search by last modified by username
+    #     Given user is on the "My CollectionSpace" page
+    #     And clicks the "Advanced Search" button
+    #     And selects "Citation" from the "AdvancedSearch" "record type" dropdown
+    #     And enters "admin@core.collectionspace.org" in the "Citation" "Record last modified by" field
+    #     And clicks the "Advanced Search search" button
+    #     Then the search results should contain "CQA21"
+
+    # Scenario: Search by last modified date
+    #     And clicks the "Advanced Search" button
+    #     And selects "Citation" from the "AdvancedSearch" "record type" dropdown
+    #     And enters today's date in the "Citation" "Earliest Modified Date" field
+    #     And clicks the "Advanced Search search" button
+    #     Then the search results should contain "CQA21"
+    #     Then close the browser
+
+    Scenario: Record deletion
+        Given user is on the "My CollectionSpace" page
+        And navigates to the record with identification number "CQA21"
+        And clicks on the "Delete" button
+        Then delete confirmation dialogue should appear
+        And clicks the confirmation delete button
+        Then "Citation" deletion should be confirmed in a dialog
+        And clicks delete confirmation OK button
+        Then close the browser
